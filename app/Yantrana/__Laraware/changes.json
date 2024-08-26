@@ -1,0 +1,987 @@
+{
+    "name": "Laraware",
+    "version": "1.x.x",
+    "releases": {
+        "1.77.196": {
+            "title": "Core Helper - 1.19.50",
+            "date": "07 AUG 2024",
+            "message": "Improved updateClientModels for individual extend,append etc",
+            "author": "Vinod Raut"
+        },
+        "1.76.196": {
+            "title": "laraware, Core Helper - 1.18.50",
+            "date": "12 JUL 2024",
+            "message": "Added expand all button for __dd and __pr",
+            "author": "Vinod Raut"
+        },
+        "1.76.194": {
+            "title": "laraware, Core Helper - 1.18.49",
+            "date": "08 JUL 2024",
+            "message": "App DB log added to laraware",
+            "author": "Vinod Raut"
+        },
+        "1.76.193": {
+            "title": "Core Helper - 1.18.48",
+            "date": "08 JUL 2024",
+            "message": "Header already sent potential issue fixed for abortIf",
+            "author": "Vinod Raut"
+        },
+        "1.76.192": {
+            "title": "Core Helper - 1.18.47",
+            "date": "11 MAY 2024",
+            "message": "ob_flush only gets clear if it have active buffer",
+            "author": "Vinod Raut"
+        },
+        "1.76.191": {
+            "title": "Core Helper - 1.18.45",
+            "date": "23 APR 2024",
+            "message": "Removed integrity attribute from script & link file link creation in __yesset, added 2nd parameter for updateClientModelsViaEvent for extend x-data",
+            "author": "Vinod Raut"
+        },
+        "1.75.191": {
+            "title": "Core Repository - 1.8.11",
+            "date": "16 APR 2024",
+            "message": "Added updateItAll method",
+            "author": "Vinod Raut"
+        },
+        "1.74.191": {
+            "title": "Core Helper - 1.17.43",
+            "date": "11 APR 2024",
+            "message": "DEMO_ACCOUNT_ACCESS_KEY changed to DEMO_ACCOUNT_ACCESS_SECRET_KEY and related updated, isDemo initially called",
+            "author": "Vinod Raut"
+        },
+        "1.74.190": {
+            "title": "Core Helper - 1.17.42",
+            "date": "03 APR 2024",
+            "message": "in is demo added DEMO_ACCOUNT_ACCESS_KEY so we can make the required changes if need",
+            "author": "Vinod Raut"
+        },
+        "1.74.189": {
+            "title": "Core Repository - 1.7.11",
+            "date": "30 MAR 2024",
+            "message": "Handled empty whereIn array so all the result should not return if its blank",
+            "author": "Vinod Raut"
+        },
+        "1.73.189": {
+            "title": "Core Helper - 1.17.41",
+            "date": "26 MAR 2024",
+            "message": "__dd updated for external api request",
+            "author": "Vinod Raut"
+        },
+        "1.73.188": {
+            "title": "Core Helper - 1.17.41",
+            "date": "26 MAR 2024",
+            "message": "Added processExternalApiResponse and isExternalApiRequest to handle external api request and responses, Handled abortIf for external api request also.",
+            "author": "Vinod Raut"
+        },
+        "1.71.187": {
+            "title": "Core Helper - 1.15.40",
+            "date": "07 MAR 2024",
+            "message": "if message handled for $this->processResponse",
+            "author": "Vinod Raut"
+        },
+        "1.73.186": {
+            "title": "Core Repository - 1.7.10",
+            "date": "22 FEB 2024",
+            "message": "Added $options parameter to fetchItAll,countItAll and deleteItAll so where array can be sent withing for additional where clauses",
+            "author": "Vinod Raut"
+        },
+        "1.72.186": {
+            "title": "Core Repository - 1.6.10",
+            "date": "12 FEB 2024",
+            "message": "added bunchInsertOrUpdate for repository",
+            "author": "Vinod Raut"
+        },
+        "1.71.186": {
+            "title": "Core Helper - 1.15.39",
+            "date": "05 FEB 2024",
+            "message": "if abortIf code is 0 then its reset to 400",
+            "author": "Vinod Raut"
+        },
+        "1.71.185": {
+            "title": "Core Helper - 1.15.38",
+            "date": "03 FEB 2024",
+            "message": "added processType for extend data to x-data",
+            "author": "Vinod Raut"
+        },
+        "1.70.185": {
+            "title": "laraware, tech-config, Core Helper - 1.15.36",
+            "date": "29 JAN 2024",
+            "message": "added laraware config for env and other tech items also replaced related __tech items with laraware, added isDemo method",
+            "author": "Vinod Raut"
+        },
+        "1.68.182": {
+            "title": "Core Request",
+            "date": "20 JAN 2024",
+            "message": "Added Secured method and Decryption field issue fixed for CoreRequest and CoreRequestTwo",
+            "author": "Vinod Raut"
+        },
+        "1.66.181": {
+            "title": "Core Repository - 1.5.10",
+            "date": "19 JAN 2024",
+            "message": "Added deleteItAll method for deleting multiple records, storeItAll issue fixed",
+            "author": "Vinod Raut"
+        },
+        "1.65.180": {
+            "title": "Core Repository - 1.4.9",
+            "date": "18 JAN 2024",
+            "message": "Added storeItAll method for inserting multiple records",
+            "author": "Vinod Raut",
+            "requested_by": "Priyanka Raut"
+        },
+        "1.64.180": {
+            "title": "Core Request",
+            "date": "16 OCT 2023",
+            "message": "Decryption field issue fixed for CoreRequest and CoreRequestTwo",
+            "author": "Vinod Raut"
+        },
+        "1.64.178": {
+            "title": "Core Helper -  1.14.36",
+            "date": "05 JAN 2024",
+            "message": "Added emptyFlashCache - to clear config cache",
+            "author": "Vinod Raut"
+        },
+        "1.63.178": {
+            "title": "Core Helper -  1.13.36",
+            "date": "05 JAN 2024",
+            "message": "Added viaFlashCache - In memory cache using config functionality so the repeated data abstraction can be avoided",
+            "author": "Vinod Raut"
+        },
+        "1.62.178": {
+            "title": "Core Request - 1.3.3",
+            "date": "16 OCT 2023",
+            "message": "Added $this->attributes() to validator make",
+            "author": "Vinod Raut"
+        },
+        "1.62.177": {
+            "title": "EngineResponse - 0.4.0",
+            "date": "10 OCT 2023",
+            "message": "Added updateData method",
+            "author": "Vinod Raut"
+        },
+        "1.61.177": {
+            "title": "Core Helper - 1.12.36",
+            "date": "03 OCT 2023",
+            "message": "Update Client models data stored only for ajax request.",
+            "author": "Vinod Raut"
+        },
+        "1.61.176": {
+            "title": "Core Helper - 1.12.35",
+            "date": "03 OCT 2023",
+            "message": "Fixed the __dd issues as JSON header getting set for non ajax request also.",
+            "author": "Vinod Raut"
+        },
+        "1.61.175": {
+            "title": "Core Helper - 1.12.34",
+            "date": "30 SEP 2023",
+            "message": "Fixed the __dd issues as header is not getting properly set.",
+            "author": "Vinod Raut"
+        },
+        "1.61.174": {
+            "title": "Core Engine - 1.5.2",
+            "date": "28 SEP 2023",
+            "message": "Added 2 methods as engineSuccessResponse and engineFailedResponse",
+            "author": "Vinod Raut"
+        },
+        "1.59.174": {
+            "title": "EngineResponse - 0.3.0",
+            "date": "28 SEP 2023",
+            "message": "Added failed method for non reaction 1",
+            "author": "Vinod Raut"
+        },
+        "1.58.174": {
+            "title": "Core Helper - 1.12.33",
+            "date": "23 SEP 2023",
+            "message": "added updateProgressTextModel to update progress text",
+            "author": "Vinod Raut"
+        },
+        "1.57.174": {
+            "title": "Core Helper - 1.11.33",
+            "date": "23 SEP 2023",
+            "message": "added updateClientModelsViaEvent to update client models from live events, Fixed Nginx server issue for dispatchStreamEventData",
+            "author": "Vinod Raut"
+        },
+        "1.56.173": {
+            "title": "Core Helper - 1.10.32",
+            "date": "21 SEP 2023",
+            "message": "added dispatchStreamEventData to send live update to client like Server side events",
+            "author": "Vinod Raut"
+        },
+        "1.55.173": {
+            "title": "Core Helper - 1.9.32",
+            "date": "25 AUG 2023",
+            "message": "added multiple_extensions option for __yesset",
+            "author": "Vinod Raut"
+        },
+        "1.54.173": {
+            "title": "Core Helper - 1.9.31",
+            "date": "14 APR 2023",
+            "message": "Improved __logDebug",
+            "author": "Vinod Raut"
+        },
+        "1.54.172": {
+            "title": "Core Request - 1.3.2 and Core Request Two - 2.1.1",
+            "date": "11 JAN 2023",
+            "message": "Deprecated warning handled",
+            "author": "Vinod Raut"
+        },
+        "1.54.170": {
+            "title": "Core Model - 1.7.10",
+            "date": "21 DEC 2022",
+            "message": "On prepareAndInsert uid only set if not sent from the data",
+            "author": "Vinod Raut"
+        },
+        "1.54.169": {
+            "title": "Many files",
+            "date": "03 NOV 2022",
+            "message": "env replaces with config at many places",
+            "author": "Vinod Raut"
+        },
+        "1.53.169": {
+            "title": "Core Request - 1.3.1, Core Request Two - 2.1.0",
+            "date": "12 SEP 2022",
+            "message": "Multi-level encrypt-decryption issue fixes",
+            "author": "Vinod Raut"
+        },
+        "1.52.169": {
+            "title": "Core Helper - 1.9.29",
+            "date": "11 MAY 2022",
+            "message": "Added prevent_exception option to suppress Exception is item not found",
+            "author": "Vinod Raut"
+        },
+        "1.52.168": {
+            "title": "CoreController - 0.4.5",
+            "date": "03 MAY 2022",
+            "message": "UpdateClientModels now also sends data for non ajax request via script.",
+            "author": "Vinod Raut"
+        },
+        "1.52.167": {
+            "title": "CoreEngine - 1.3.2",
+            "date": "28 APR 2022",
+            "message": "engineResponse $data default forced to set as blank array if it is null",
+            "author": "Vinod Raut"
+        },
+        "1.52.166": {
+            "title": "Core Repository - 1.3.8",
+            "date": "02 MAR 2022",
+            "message": "fetchIt: idOrUid should not be null",
+            "author": "Vinod Raut"
+        },
+        "1.52.165": {
+            "title": "CoreEngine - 1.3.1",
+            "date": "26 DEC 2021",
+            "message": "engineResponse $data default set to blank array instead of null",
+            "author": "Vinod Raut"
+        },
+        "1.52.164": {
+            "title": "EngineResponse - 0.2.0",
+            "date": "26 DEC 2021",
+            "message": "Added success method to check i the reaction code is 1",
+            "author": "Vinod Raut"
+        },
+        "1.51.164": {
+            "title": "Core Helper - 1.9.28",
+            "date": "14 DEC 2021",
+            "message": "handled engine response.",
+            "author": "Vinod Raut"
+        },
+        "1.51.163": {
+            "title": "Core Engine - 1.3.0",
+            "date": "14 DEC 2021",
+            "message": "added engineResponse method",
+            "author": "Vinod Raut"
+        },
+        "1.50.163": {
+            "title": "EngineResponse - 0.1.0",
+            "date": "14 DEC 2021",
+            "message": "Added Engine Response class for friendly response methods",
+            "author": "Vinod Raut"
+        },
+        "1.49.163": {
+            "title": "Core Helper - 1.9.27",
+            "date": "20 SEP 2018",
+            "message": "added one more / slash to file for __dd, __pr etc to resolve issue for windows",
+            "author": "Vinod Raut"
+        },
+        "1.49.162": {
+            "title": "Core Engine - 1.2.2",
+            "date": "07 OCT 2021",
+            "message": "used array get for engineData",
+            "author": "Vinod Raut"
+        },
+        "1.49.161": {
+            "title": "Core Model - 1.7.9",
+            "date": "18 SEP 2021",
+            "message": "array_merge has been replaced with arrayExtend. Note: it won't replace null or blank values",
+            "author": "Vinod Raut"
+        },
+        "1.49.160": {
+            "title": "Core Repository - 1.3.7",
+            "date": "17 SEP 2021",
+            "message": "updateIt now also accepts array to find record to update",
+            "author": "Vinod Raut"
+        },
+        "1.49.159": {
+            "title": "Core Request Two - 2.0.0",
+            "date": "24 JUL 2021",
+            "message": "Introduced new Class CoreRequestTwo : Removed validator method and added validate method with parent call, so the methods for looseSanitization etc. work well",
+            "author": "Vinod Raut"
+        },
+        "1.48.159": {
+            "title": "Core Helper - 1.9.26",
+            "date": "14 JUL 2021",
+            "message": "added # to end of line for __clog function so cursor can go to correct line number.",
+            "author": "Vinod Raut"
+        },
+        "1.48.158": {
+            "title": "Core Repository - 1.3.6",
+            "date": "29 JUN 2021",
+            "message": "Added countIt function for the repository to get the count.",
+            "author": "Vinod Raut"
+        },
+        "1.47.158": {
+            "title": "Core Repository - 1.2.6",
+            "date": "22 JUN 2021",
+            "message": "Added support for deleteIt to accept array as search record clause",
+            "author": "Vinod Raut"
+        },
+        "1.48.157": {
+            "title": "Core Helper - 1.9.25",
+            "date": "04 JUN 2021",
+            "message": "Added abortIf method to also handle AJAX request response properly",
+            "author": "Vinod Raut"
+        },
+        "1.47.156": {
+            "title": "Core Repository - 1.2.5",
+            "date": "03 JUN 2021",
+            "message": "added with method, Added support for whereIn key to fetchItALL method, also scoped method reset to blank after used",
+            "author": "Vinod Raut"
+        },
+        "1.46.151": {
+            "title": "CoreController - 0.4.4",
+            "date": "01 JUN 2021",
+            "message": "Added method engineMessage to get message from engine reaction",
+            "author": "Vinod Raut"
+        },
+        "1.45.151": {
+            "title": "CoreController - 0.3.4",
+            "date": "01 JUN 2021",
+            "message": "Added method engineData to get data from engine reaction",
+            "author": "Vinod Raut"
+        },
+        "1.44.151": {
+            "title": "Core Repository - 1.1.1",
+            "date": "28 MAY 2021",
+            "message": "UpdateIt now also accept id or uid along with eloquent model if there is id or uid then it uses fetchIt to grab",
+            "author": "Vinod Raut"
+        },
+        "1.44.150": {
+            "title": "Core Helper - 1.8.25",
+            "date": "07 MAY 2021",
+            "message": "Added __yesset support for integrity hash generation and minor fix for __secureApiResponse for http code and function info placed properly",
+            "author": "Vinod Raut"
+        },
+        "1.43.150": {
+            "title": "Core Request - 1.2.1, Core Model - 1.7.8",
+            "date": "24 APR 2021",
+            "message": "Core Request: Issue fixed as encrypted and decrypted both items are processing, Core Model: clearCacheItems issue fixed for already set ids.",
+            "author": "Vinod Raut"
+        },
+        "1.43.148": {
+            "title": "Core Helper - 1.8.23, Core Engine - 1.2.1, CoreController - 0.2.4",
+            "date": "22 APR 2021",
+            "message": "added http response code support",
+            "author": "Vinod Raut"
+        },
+        "1.42.148": {
+            "title": "Core Helper - 1.8.20",
+            "date": "11 APR 2021",
+            "message": "added updateClientModels to send response to update client models",
+            "author": "Vinod Raut"
+        },
+        "1.41.149": {
+            "title": "Core Model - 1.7.6",
+            "date": "18 APR 2021",
+            "message": "minor issue fixed as bunchInsertUpdate, batchUpdate, bunchUpdate additional where conditions only accept single item with key and value",
+            "author": "Vinod Raut"
+        },
+        "1.41.148": {
+            "title": "Core Model - 1.7.6",
+            "date": "17 APR 2021",
+            "message": "bunchInsertUpdate now accepts 3rd parameter as additional where conditions. clearCacheItems now accepts the parameters to additionally clear other cache ids",
+            "author": "Vinod Raut"
+        },
+        "1.39.148": {
+            "title": "Core Helper - 1.7.20",
+            "date": "11 APR 2021",
+            "message": "__dd, __pr mow compatible with ignition path set. Added functions arraySetAndGet, arrayFilterRecursive, arrayExtend, arrayStringReplace",
+            "author": "Vinod Raut"
+        },
+        "1.35.145": {
+            "title": "Core Request - 1.2.0",
+            "date": "01 MAR 2021",
+            "message": "Added function for skipPayloadDecryption, looseSanitizationFields, preventSanitization, strictSanitization",
+            "author": "Vinod Raut"
+        },
+        "1.33.144": {
+            "title": "Core Helper - 1.6.17",
+            "date": "27 FEB 2021",
+            "message": "Many minor improvements to log functions & __yesset now appends file hash signature",
+            "author": "Vinod Raut"
+        },
+        "1.33.140": {
+            "title": "CoreController - 0.2.2",
+            "date": "27 FEB 2021",
+            "message": "improved page compression",
+            "author": "Vinod Raut"
+        },
+        "1.34.139": {
+            "title": "Core Request - 1.1.15",
+            "date": "28 JAN 2021",
+            "message": "Minor issue in array based request item issue fixed",
+            "author": "Vinod Raut"
+        },
+        "1.34.138": {
+            "title": "Core Request - 1.1.14",
+            "date": "27 JAN 2021",
+            "message": "array based request item issue fixed",
+            "author": "Vinod Raut"
+        },
+        "1.34.136": {
+            "title": "CommonSupport - 1.1.1",
+            "date": "22 JAN 2021",
+            "message": "str_contains changed with Str::contains",
+            "author": "Vinod Raut"
+        },
+        "1.34.135": {
+            "title": "Core Request - 1.1.12",
+            "date": "11 NOV 2020",
+            "message": "Now the array based values can be encrypted",
+            "author": "Vinod Raut"
+        },
+        "1.34.133": {
+            "title": "Core Repository - 1.1.0",
+            "date": "03 NOV 2020",
+            "message": "Added fetchItAll method to get many results, fetchIt now accepts array for where also",
+            "author": "Vinod Raut"
+        },
+        "1.33.132": {
+            "title": "CoreController - 0.2.1",
+            "date": "14 SEP 2020",
+            "message": "Added options for loadView to compress page and check for __globals value for js",
+            "author": "Vinod Raut"
+        },
+        "1.33.130": {
+            "title": "Core Repository - 1.0.4",
+            "date": "19 JUN 2020",
+            "message": "storeIt 2nd parameter is now optional, it will use 1st parameter array keys, primaryModel variable declared",
+            "author": "Vinod Raut"
+        },
+        "1.33.125": {
+            "title": "Core Helper - 1.6.13",
+            "date": "15 JUN 2020",
+            "message": "url changed to asset for __yesset",
+            "author": "Vinod Raut"
+        },
+        "1.33.124": {
+            "title": "Core Model - 1.6.6",
+            "date": "05 JUN 2020",
+            "message": "comments updated",
+            "author": "Vinod Raut"
+        },
+        "1.33.123": {
+            "title": "Core Helper - 1.6.12",
+            "date": "05 JUN 2020",
+            "message": "str_contains replaced with starts_with",
+            "author": "Vinod Raut"
+        },
+        "1.33.122": {
+            "title": "NativeSession",
+            "date": "07 MAY 2020",
+            "message": "session name added to prevent overrides",
+            "author": "Vinod Raut"
+        },
+        "1.33.121": {
+            "title": "Core Helper - 1.6.11",
+            "date": "27 APR 2020",
+            "message": "Issue fixed for implode on php 7.4",
+            "author": "Vinod Raut"
+        },
+        "1.33.120": {
+            "title": "Core Model - 1.6.4",
+            "date": "04 APR 2020",
+            "message": "if sortBy is null the default set, formatted code",
+            "author": "Vinod Raut"
+        },
+        "1.33.118": {
+            "title": "Core Model - 1.6.3",
+            "date": "16 MAR 2020",
+            "message": "verifyAndUpdateJsonColumnData - issue fixed for json decode",
+            "author": "Vinod Raut",
+            "reported_by": "Vivek Gangotri"
+        },
+        "1.33.117": {
+            "title": "Core Helper - 1.6.10, 0.1.6 Tech Config",
+            "date": "21 FEB 2020",
+            "message": "Added reaction 23 for __dd",
+            "author": "Vinod Raut",
+            "requested_by": "Sachin Sayse"
+        },
+        "1.33.116": {
+            "title": "Core Helper - 1.6.9",
+            "date": "14 JAN 2020",
+            "message": "Added open in editor feature for non-ajax __dd & __pr",
+            "author": "Vinod Raut"
+        },
+        "1.33.115": {
+            "title": "Core Helper - 1.6.8",
+            "date": "21 OCT 2019",
+            "message": "updateCreateArrayFileItem issue fixed",
+            "author": "Vinod Raut"
+        },
+        "1.33.114": {
+            "title": "Core Helper - 1.6.7",
+            "date": "11 SEP 2019",
+            "message": "Handled __logDebug for object",
+            "author": "Vinod Raut"
+        },
+        "1.33.113": {
+            "title": "Core Repository - 1.0.3",
+            "date": "19 JUN 2019",
+            "message": "Redefined the methods name for fetch, update, delete",
+            "author": "Vinod Raut"
+        },
+        "1.33.110": {
+            "title": "Core Model - 1.6.2",
+            "date": "17 JUN 2019",
+            "message": "bunchInsertUpdate now returns just as boolean",
+            "author": "Vinod Raut",
+            "requested_by": "Ravindra Lande"
+        },
+        "1.33.109": {
+            "title": "Core Model - 1.6.1",
+            "date": "17 JUN 2019",
+            "message": "bunchInsertUpdate now inserts the unavailable records",
+            "author": "Vinod Raut",
+            "requested_by": "Ravindra Lande"
+        },
+        "1.33.108": {
+            "title": "Core Model - 1.6.0, Core Repository - 1.0.0 - 11 JUN 2019",
+            "date": "10 JUN 2019",
+            "message": "Core Model - Added scope methods for exceptColumns, onlyColumns & method for getUidKey Method, Core Repository - Added chaining methods for exceptColumns, onlyColumns & core methods for fetch, storeIt, update and delete",
+            "author": "Vinod Raut",
+            "supported_by": "Ravindra Lande, Nikhil Bangre, Sachin Sayse"
+        },
+        "1.23.108": {
+            "title": "Core Model - 1.5.1",
+            "date": "11 JUN 2019",
+            "message": "Minor fixes",
+            "author": "Vinod Raut"
+        },
+        "1.23.107": {
+            "title": "Core Model - 1.5.0, CoreController - 0.2.0, Core Repository - 0.4.2 - 10 JUN 2019",
+            "date": "10 JUN 2019",
+            "message": "Core Model - Added method for insert or update, CoreController- processResponse,secureProcessResponse now available in controller with force secure option., Core Repository - added failback Closure parameter to processTransaction",
+            "author": "Vinod Raut",
+            "requested_by": "Ravindra Lande, Nikhil Bangre"
+        },
+        "1.21.106": {
+            "title": "Core Helper - 1.6.6",
+            "date": "07 MAY 2019",
+            "message": "Added updateCreateArrayFileItem method for create or update array file",
+            "author": "Vinod Raut"
+        },
+        "1.20.106": {
+            "title": "Core Helper - 1.5.6",
+            "date": "20 FEB 2019",
+            "message": "__pr look fallback added using dump",
+            "author": "Vinod Raut"
+        },
+        "1.20.105": {
+            "title": "Core Helper - 1.5.4",
+            "date": "20 SEP 2018",
+            "message": "Added __logDebug helper method for logging message for debug mode also env APP_DEBUG replaced with app.debug",
+            "author": "Vinod Raut"
+        },
+        "1.19.104": {
+            "title": "Core Helper - 1.4.3",
+            "date": "19 SEP 2018",
+            "message": "Added APP_DEBUG_IPS for enabling debug modes for comma separated specific IPs",
+            "author": "Vinod Raut"
+        },
+        "1.19.103": {
+            "title": "Security 0.6.2",
+            "date": "08 AUG 2018",
+            "message": "Added generateToken method",
+            "author": "Vinod Raut"
+        },
+        "1.18.103": {
+            "title": "Core Engine - 1.2.0",
+            "date": "07 AUG 2018",
+            "message": "Added engineData method to extract data from engineReaction",
+            "author": "Vinod Raut",
+            "supported_by": "Ravindra Lande, Nikhil Bangre"
+        },
+        "1.17.103": {
+            "title": "Core Helper - 1.4.2",
+            "date": "07 AUG 2018",
+            "message": "redirectViaPost method can have temp redirect data and clean up the code.",
+            "author": "Vinod Raut",
+            "supported_by": "Ravindra Lande, Nikhil Bangre"
+        },
+        "1.17.101": {
+            "title": "Core Helper - 1.4.0",
+            "date": "26 JUL 2018",
+            "message": "Added redirectViaPost method added",
+            "author": "Vinod Raut",
+            "supported_by": "Ravindra Lande, Nikhil Bangre"
+        },
+        "1.16.101": {
+            "title": "CommonSupport - 1.1.0",
+            "date": "20 JUL 2018",
+            "message": "Worked on state via routes for angular 6 using cookies now also support normal url",
+            "author": "Vinod Raut",
+            "supported_by": "Ravindra Lande, Nikhil Bangre"
+        },
+        "1.16.100": {
+            "title": "Core Helper - 1.3.25",
+            "date": "19 JUL 2018",
+            "message": "Unmasked secured response data for debug mode",
+            "author": "Vinod Raut",
+            "supported_by": "Ravindra Lande, Nikhil Bangre"
+        },
+        "1.16.99": {
+            "title": "Core Tech Config File - 0.1.5",
+            "date": "17 JUL 2018",
+            "message": "Added new reaction code 22 for Restriction Imposed usefull for Subscription related restrictions",
+            "author": "Vinod Raut",
+            "supported_by": "Ravindra Lande, Nikhil Bangre"
+        },
+        "1.15.99": {
+            "title": "Core Helper - 1.3.24, Security - 0.5.2, Core Request - 1.1.9",
+            "date": "04 JUL 2018",
+            "message": "Added methods for long rsa encrypt & decrypt",
+            "author": "Vinod Raut",
+            "supported_by": "Nikhil Bangre"
+        },
+        "1.13.98": {
+            "title": "Core Model - 1.4.1",
+            "date": "22 MAY 2018",
+            "message": "Added event function for prepareAndInsert called onPrepareAndInserting",
+            "author": "Vinod Raut",
+            "supported_by": "Ravindra Lande, Nikhil Bangre"
+        },
+        "1.12.98": {
+            "title": "Core Model - 1.3.1",
+            "date": "09 MAY 2018",
+            "message": "Added static function bunchUpdate alias for batchUpdate",
+            "author": "Vinod Raut",
+            "suggested_by": "Ravindra Lande"
+        },
+        "1.11.98": {
+            "title": "CoreController - 0.1.1",
+            "date": "02 MAY 2018",
+            "message": "corrected log session uses.",
+            "author": "Vinod Raut"
+        },
+        "1.11.96": {
+            "title": "Core Helper - 1.3.22",
+            "date": "02 MAY 2018",
+            "message": "added secure response functions",
+            "author": "Vinod Raut"
+        },
+        "1.10.96": {
+            "title": "Security 0.3.2",
+            "date": "02 APR 2018",
+            "message": "Added RSA encrypt with private key",
+            "author": "Vinod Raut"
+        },
+        "1.9.96": {
+            "title": "CoreMailer 1.0.2",
+            "date": "11 APR 2018",
+            "message": "Debug email view issue is fixed.",
+            "author": "Vinod Raut",
+            "reported_by": "Sachin Sayse"
+        },
+        "1.9.95": {
+            "title": "CommonSupport 1.0.1",
+            "date": "07 FEB 2018",
+            "message": "stateViaRoute now uses localStorage",
+            "author": "Vinod Raut"
+        },
+        "1.9.94": {
+            "title": "Core Helper - 1.2.22",
+            "date": "18 JAN 2018",
+            "message": "__yesset now accepts 3rd parameter for options, random option is available",
+            "author": "Vinod Raut"
+        },
+        "1.9.92": {
+            "title": "Core Helper - 1.2.20 and CoreEngine 1.1.2",
+            "date": "15 JAN 2018",
+            "message": "Datatable response sent via __apiResponse",
+            "author": "Vinod Raut",
+            "supported_by": "Ravindra Lande"
+        },
+        "1.8.91": {
+            "title": "Core Helper - 1.2.19",
+            "date": "15 JAN 2018",
+            "message": "__pr, __clog & dd now uses config instead if NativeSession also additional can be sent using config additional",
+            "author": "Vinod Raut"
+        },
+        "1.8.88": {
+            "title": "YesAuthority - REMOVED",
+            "date": "01 AUG 2017",
+            "message": "YesAuthority has been removed from __Laraware & released as Open source library at https://github.com/livelyworks/YesAuthority",
+            "author": "Vinod Raut"
+        },
+        "1.7.88": {
+            "title": "YesAuthority - 1.16.21",
+            "date": "27 JUL 2017",
+            "message": "Issue fixed related to upper level",
+            "author": "Vinod Raut",
+            "reported_by": "Nikhil Bangre"
+        },
+        "1.7.87": {
+            "title": "YesAuthority - 1.16.20",
+            "date": "26 JUL 2017",
+            "message": "Added upper_level item to know the upper level permission",
+            "author": "Vinod Raut",
+            "supported_by": "Nikhil Bangre"
+        },
+        "1.7.86": {
+            "title": "YesAuthority - 1.15.20",
+            "date": "25 JUL 2017",
+            "message": "Small issues fixed for getZones and checkOnly, checkExcept now accept single parameter as string",
+            "author": "Vinod Raut",
+            "reported_by": "Nikhil Bangre"
+        },
+        "1.7.81": {
+            "title": "YesAuthority - 1.15.15",
+            "date": "24 JUL 2017",
+            "message": "Changed method names from only, except, upto to checkOnly, checkExcept and checkUpt. onlyDenied and onlyAllowed changed to takeAllowed and takeDenied also added takePublic.",
+            "author": "Vinod Raut",
+            "supported_by": "Ravindra Lande"
+        },
+        "1.6.76": {
+            "title": "YesAuthority - 1.14.10",
+            "date": "22 JUL 2017",
+            "message": "Added 9 chained methods these are viaRole, only, except, upto, getZones, getRoutes, withDetails, onlyDenied, onlyAllowed. availableRoutes and availableZones has been deprecated its recommended that you use getRoutes & getZones instead, also last versions options capability for details etc has been removed.",
+            "author": "Vinod Raut",
+            "supported_by": "Nikhil Bangre, Ravindra Lande"
+        },
+        "1.5.62": {
+            "title": "YesAuthority - 1.5.10 ",
+            "date": "13 JUL 2017",
+            "message": "Issue fixed related to array checked",
+            "author": "Vinod Raut"
+        },
+        "1.5.61": {
+            "title": "YesAuthority - 1.5.9 ",
+            "date": "08 JUL 2017",
+            "message": "Added functionality to get detailed information on level checks as well as permission sources",
+            "author": "Vinod Raut",
+            "supported_by": "Ravindra Lande, Nikhil Bangre"
+        },
+        "1.4.61": {
+            "title": "YesAuthority - 1.4.9 ",
+            "date": "07 JUL 2017",
+            "message": "Added functionality to check access levels and added support for roles table permissions.",
+            "author": "Vinod Raut",
+            "supported_by": "Ravindra Lande, Nikhil Bangre"
+        },
+        "1.2.61": {
+            "title": "YesAuthority - 1.3.9 ",
+            "date": "05 JUL 2017",
+            "message": "Added functionality to check access for user other than logged in.",
+            "author": "Vinod Raut",
+            "requested_by": "Ravindra Lande, Nikhil Bangre"
+        },
+        "1.1.61": {
+            "title": "Core Request - 1.1.8",
+            "date": "29 JUN 2017",
+            "message": "Added processBefore hook function for manipulating inputs before validation",
+            "author": "Vinod Raut"
+        },
+        "1.1.57": {
+            "title": "Core Helper - 1.2.15",
+            "date": "29 JUN 2017",
+            "message": "Added __reIndexArray function for Re Indexing it using array value based on key",
+            "author": "Vinod Raut"
+        },
+        "1.1.56": {
+            "title": "Core Helper - 1.1.15",
+            "date": "20 JUN 2017",
+            "message": "Issues fixed for stateViaRoute params",
+            "author": "Vinod Raut"
+        },
+        "1.1.55": {
+            "title": "Core Model - 1.3.0",
+            "date": "23 MAY 2017",
+            "message": "Major issues for json columns related to toArray fixed",
+            "author": "Vinod Raut",
+            "supported_by": "Nikhil Bangre"
+        },
+        "1.1.49": {
+            "title": "Core Helper - 1.1.14 and CoreEngine 1.0.2 - 17 MAY 2017",
+            "date": "17 MAY 2017",
+            "message": "callback function existence cross check as its should not be declared function.",
+            "author": "Vinod Raut",
+            "reported_by": "Ravindra Lande, Nikhil Bangre"
+        },
+        "1.1.47": {
+            "title": "Core Helper - 1.1.13",
+            "date": "22 APR 2017",
+            "message": "__clog now shows backtraces",
+            "author": "Vinod Raut"
+        },
+        "1.1.46": {
+            "title": "Core Helper - 1.1.12",
+            "date": "22 APR 2017",
+            "message": "Improved __dd, and __pr, now shows backtraces",
+            "author": "Vinod Raut"
+        },
+        "1.1.42": {
+            "title": "NativeSession",
+            "date": "21 APR 2017",
+            "message": "session status check improved",
+            "author": "Vinod Raut"
+        },
+        "1.1.41": {
+            "title": "CommonSupport 1.0.0 & Core Helper - 1.1.6",
+            "date": "13 APR 2017",
+            "message": "Added stateViaRoute functionality for ng app to app redirection",
+            "author": "Vinod Raut"
+        },
+        "1.1.40": {
+            "title": "Core Tech Config File - 0.1.4 & Core Helper - 1.0.6",
+            "date": "17 MAR 2017",
+            "message": "Added new reaction code 21 for redirect, You need to pass redirect_to url via data",
+            "author": "Vinod Raut"
+        },
+        "1.1.39": {
+            "title": "YesAuthority - 1.2.9 ",
+            "date": "16 MAR 2017",
+            "message": "availableRoutes now accept boolean parameter to determine to return array of available route ids with URI or not. ",
+            "author": "Vinod Raut"
+        },
+        "1.1.38": {
+            "title": "YesAuthority - 1.2.8 ",
+            "date": "07 MAR 2017",
+            "message": "Dynamic access zones improved and now Custom Permissions can be handled",
+            "author": "Vinod Raut",
+            "supported_by": "Ajay Pimpalkar"
+        },
+        "1.1.30": {
+            "title": "YesAuthority - 1.1.4 ",
+            "date": "03 MAR 2017",
+            "message": "Access zones can be used as access id but wildcard not accepted.",
+            "author": "Vinod Raut"
+        },
+        "1.1.26": {
+            "title": "YesAuthority - 1.1.0 ",
+            "date": "02 MAR 2017",
+            "message": "User lavel permissions now managed through the dynamic access zones",
+            "author": "Vinod Raut",
+            "reported_by": "Ajay Pimpalkar, Nikhil Bangre"
+        },
+        "1.1.22": {
+            "title": "YesAuthority - 1.0.8 ",
+            "date": "17 FEB 2017",
+            "message": "user permission datatype checked and handled",
+            "author": "Vinod Raut",
+            "reported_by": "Nikhil Bangre"
+        },
+        "1.1.21": {
+            "title": "Core Request - 1.0.8",
+            "date": "04 FEB 2017",
+            "message": "Allowed tags updated",
+            "author": "Vinod Raut",
+            "reported_by": "Ravindra Lande"
+        },
+        "1.1.20": {
+            "title": "Core Helper - 1.0.5",
+            "date": "27 JAN 2017",
+            "message": "Small issues related to __clog and email debug view fixed",
+            "author": "Vinod Raut"
+        },
+        "1.1.18": {
+            "title": "Core Model - 1.2.0",
+            "date": "27 JAN 2017",
+            "message": "Added json item process functionality",
+            "author": "Vinod Raut"
+        },
+        "1.1.13": {
+            "title": "YesAuthority - 1.0.7 ",
+            "date": "16 JAN 2017",
+            "message": "Condition Callback now received Inherited access result as well as current route id.",
+            "author": "Vinod Raut",
+            "supported_by": "Nikhil Bangre"
+        },
+        "1.1.7": {
+            "title": "Core Helper - 1.0.3",
+            "date": "16 JAN 2017",
+            "message": "Engine data issue handled in __processResponse",
+            "author": "Vinod Raut",
+            "reported_by": "Nikhil Bangre"
+        },
+        "1.1.5": {
+            "title": "Core Request - 1.0.7",
+            "date": "14 JAN 2017",
+            "message": "Long strings decryption has been handled as per __DataStore request",
+            "author": "Vinod Raut",
+            "supported_by": "Ravindra Lande"
+        },
+        "1.1.1": {
+            "title": "Core Mailer - 1.0.1",
+            "date": "10 JAN 2017",
+            "message": "Mail from issue fixed",
+            "author": "Vinod Raut",
+            "reported_by": "Ajay Pimpalkar"
+        },
+        "1.1.0": {
+            "title": "Core Mailer - 1.0.0",
+            "date": "09 JAN 2017",
+            "message": "Added CoreMailer",
+            "author": "Vinod Raut"
+        },
+        "1.0.13": {
+            "title": "Core Request - 1.0.5",
+            "date": "09 JAN 2017",
+            "message": "Now the keys also get encrypted for secured requests.",
+            "author": "Vinod Raut",
+            "supported_by": "Ajay Pimpalkar"
+        },
+        "1.0.8": {
+            "title": "Core Model - 1.0.5",
+            "date": "05 JAN 2016",
+            "message": "deleteIt method issue fixed.",
+            "author": "Vinod Raut",
+            "reported_by": "Vaishali Misal",
+            "identified_by": "Nikhil Bangre, Ajay Pimpalkar and Ravindra Lande"
+        },
+        "1.0.3": {
+            "title": "YesAuthority - 1.0.1 ",
+            "date": "02 JAN 2016",
+            "message": "Now condition access ids have a wildcard support",
+            "author": "Vinod Raut"
+        },
+        "1.0.2": {
+            "title": "Core Helper - 1.0.1 ",
+            "date": "02 JAN 2016",
+            "message": "added incident send facility",
+            "author": "Vinod Raut"
+        },
+        "1.0.1": {
+            "title": "Core Engine - 1.0.1 ",
+            "date": "02 JAN 2016",
+            "message": "engineReaction now merge additional data ",
+            "author": "Vinod Raut"
+        },
+        "1.0.0": {
+            "title": "Version set as 1",
+            "date": "08 NOV 2016",
+            "message": "lots of new changes",
+            "author": "Vinod Raut"
+        }
+    }
+}

@@ -1,0 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.lw-validation-error {
+    @apply flex text-red-600 mt-2 mr-2 ;
+}

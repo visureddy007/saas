@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Routing through public folder, useful for shared hosting main domains
+    # where user is unable to set document root
+    RewriteRule ^(.*)$ public/$1 [L]
+    # Disable access to .env file
+   <Files .env>
+        order allow,deny
+        Deny from all
+    </Files>
+</IfModule>

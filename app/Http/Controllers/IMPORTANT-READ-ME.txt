@@ -1,0 +1,10 @@
+--------------------------------------------------------------------------------
+PLEASE NOTE:
+--------------------------------------------------------------------------------
+All the controllers functionalities has been organized in components based approach at (but you can add your own controllers/models as you needed)
+/app/Yantrana/Components
+Each component consist of the classes & files
+    Controller - Controller classes who communicates with Engine Class for functionalities
+    Engine - Main functionality classes, to avoid writing all the code in controller files these are added to Engine Class file. It communicates with the Repository class for data.
+    Repository - All the database operations done on model/db would be done using these classes.
+    Model - Model files
