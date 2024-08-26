@@ -115,18 +115,18 @@ class ContactEngine extends BaseEngine implements ContactEngineInterface
         $requireColumns = [
             '_id',
             '_uid',
-            'first_name',
-            'last_name',
-            'language_code',
-            'whatsapp_opt_out' => function ($rowData) use (&$listOfCountries) {
-                return $rowData['whatsapp_opt_out'] ? __tr('Opted Out') : __tr('Opted In');
-            },
-            'country_name' => function ($rowData) use (&$listOfCountries) {
-                return Arr::get($listOfCountries, $rowData['countries__id'] . '.name');
-            },
-            'phone_number' => function ($rowData) {
-                return $rowData['wa_id'];
-            },
+            // 'first_name',
+            // 'last_name',
+            // 'language_code',
+            // 'whatsapp_opt_out' => function ($rowData) use (&$listOfCountries) {
+            //     return $rowData['whatsapp_opt_out'] ? __tr('Opted Out') : __tr('Opted In');
+            // },
+            // 'country_name' => function ($rowData) use (&$listOfCountries) {
+            //     return Arr::get($listOfCountries, $rowData['countries__id'] . '.name');
+            // },
+            // 'phone_number' => function ($rowData) {
+            //     return $rowData['wa_id'];
+            // },
             'email',
             'created_at' => function ($rowData) {
                 return formatDateTime($rowData['created_at']);
@@ -577,7 +577,7 @@ class ContactEngine extends BaseEngine implements ContactEngineInterface
             }
             // country repository
             $countryRepository = new CountryRepository();
-            $countries = $countryRepository->fetchItAll([], ['_id','name'])->keyBy('_id')->toArray();
+           // $countries = $countryRepository->fetchItAll([], ['_id','name'])->keyBy('_id')->toArray();
             // contacts
             $contacts = $this->contactRepository->with(['groups', 'customFieldValues'])->fetchItAll([
                 'vendors__id' => $vendorId
@@ -585,12 +585,12 @@ class ContactEngine extends BaseEngine implements ContactEngineInterface
             // go though each contact and prepare item for export
             foreach ($contacts as $contact) {
                 $dataItem = [
-                    $contact->first_name,
-                    $contact->last_name,
-                    // phone number
-                    $contact->wa_id,
-                    $contact->language_code,
-                    $countries[$contact->countries__id]['name'] ?? null,
+                    // $contact->first_name,
+                    // $contact->last_name,
+                    // // phone number
+                    // $contact->wa_id,
+                    // $contact->language_code,
+                    // $countries[$contact->countries__id]['name'] ?? null,
                     $contact->email,
                 ];
                 // group
@@ -645,7 +645,7 @@ class ContactEngine extends BaseEngine implements ContactEngineInterface
         }
         $filePath = getTempUploadedFile($request->get('document_name'));
         $countryRepository = new CountryRepository();
-        $countries = $countryRepository->fetchItAll([], ['_id','name'])->keyBy('name')->toArray();
+        //$countries = $countryRepository->fetchItAll([], ['_id','name'])->keyBy('name')->toArray();
         $contactsRequiredData = $this->prepareContactRequiredData();
         $vendorContactGroups = $contactsRequiredData->data('vendorContactGroups')?->keyBy('title')?->toArray() ?: [];
         $vendorContactCustomFields = $contactsRequiredData->data('vendorContactCustomFields')?->keyBy('input_name')?->toArray() ?: [];
@@ -656,11 +656,11 @@ class ContactEngine extends BaseEngine implements ContactEngineInterface
         $data = [];
 
         $dataStructure = [
-            'first_name',
-            'last_name',
-            'wa_id',
-            'language_code',
-            'countries__id',
+            // 'first_name',
+            // 'last_name',
+           // 'wa_id',
+            // 'language_code',
+            // 'countries__id',
             'email',
         ];
         $customFieldStructure = [];
@@ -674,7 +674,7 @@ class ContactEngine extends BaseEngine implements ContactEngineInterface
             ], [
                 '_id',
                 '_uid',
-                'wa_id'
+                //'wa_id'
                 ])?->keyBy('_uid')?->toArray() ?: [];
         $phoneNumbers = [];
         $ignoreRow = false;
@@ -693,10 +693,10 @@ class ContactEngine extends BaseEngine implements ContactEngineInterface
                     $contactId = null;
                     if($rowIndex != 1) {
                         $contactsToUpdate[$rowIndex] = [
-                            'first_name' => null,
-                            'last_name' => null,
-                            'language_code' => null,
-                            'countries__id' => null,
+                            // 'first_name' => null,
+                            // 'last_name' => null,
+                            // 'language_code' => null,
+                            // 'countries__id' => null,
                             'email' => null,
                             'vendors__id' => $vendorId
                         ];
@@ -709,48 +709,50 @@ class ContactEngine extends BaseEngine implements ContactEngineInterface
                         $cellValue = e($cell->getValue());
                         // if its not header row and upto 5 cells its contact basic fields
                         if(($rowIndex != 1) and ($cellIndex <= 5)) {
-                            if($dataStructure[$cellIndex] == 'wa_id') {
-                                if(!$cellValue) {
-                                    return $this->engineFailedResponse([], __tr('Missing phone number on row __rowNumber__ ', [
-                                        '__rowNumber__' => $rowIndex
-                                    ]));
-                                }
-                                // check if mobile number is valid
-                                if(!is_numeric($cellValue) or str_starts_with($cellValue, '0') or str_starts_with($cellValue, '+')) {
-                                    return $this->engineFailedResponse([], __tr('mobile number should be numeric value without prefixing 0 or +'));
-                                }
-                                // check if number is already processed then skip and continue
-                                if(in_array($cellValue, $phoneNumbers)) {
-                                    $ignoreRow = true;
-                                    $duplicateEntries[] = $cellValue;
-                                    unset($contactsToUpdate[$rowIndex]);
-                                    continue;
-                                }
-                                $contact = Arr::first($contacts, function ($value, $key) use (&$cellValue) {
-                                    return $value['wa_id'] == $cellValue;
-                                });
-                                $contactsToUpdate[$rowIndex]['_uid'] = Arr::get($contact, '_uid') ?: (string) Str::uuid();
-                                if(!__isEmpty($contact)) {
-                                    $contactId = Arr::get($contact, '_id');
-                                } else {
-                                    $contactsToUpdate[$rowIndex]['disable_ai_bot'] = $botSettingsForNewContacts;
-                                    $newContactsCount++;
-                                    $contactsToUpdate[$rowIndex][$dataStructure[$cellIndex]] = $cellValue;
-                                    $phoneNumbers[] = $cellValue;
-                                }
-                            }
+                            // if($dataStructure[$cellIndex] == 'wa_id') {
+                            //     if(!$cellValue) {
+                            //         return $this->engineFailedResponse([], __tr('Missing phone number on row __rowNumber__ ', [
+                            //             '__rowNumber__' => $rowIndex
+                            //         ]));
+                            //     }
+                            //     // check if mobile number is valid
+                            //     if(!is_numeric($cellValue) or str_starts_with($cellValue, '0') or str_starts_with($cellValue, '+')) {
+                            //         return $this->engineFailedResponse([], __tr('mobile number should be numeric value without prefixing 0 or +'));
+                            //     }
+                            //     // check if number is already processed then skip and continue
+                            //     if(in_array($cellValue, $phoneNumbers)) {
+                            //         $ignoreRow = true;
+                            //         $duplicateEntries[] = $cellValue;
+                            //         unset($contactsToUpdate[$rowIndex]);
+                            //         continue;
+                            //     }
+                            //     $contact = Arr::first($contacts, function ($value, $key) use (&$cellValue) {
+                            //         return $value['wa_id'] == $cellValue;
+                            //     });
+                            //     $contactsToUpdate[$rowIndex]['_uid'] = Arr::get($contact, '_uid') ?: (string) Str::uuid();
+                            //     if(!__isEmpty($contact)) {
+                            //         $contactId = Arr::get($contact, '_id');
+                            //     } else {
+                            //         $contactsToUpdate[$rowIndex]['disable_ai_bot'] = $botSettingsForNewContacts;
+                            //         $newContactsCount++;
+                            //         $contactsToUpdate[$rowIndex][$dataStructure[$cellIndex]] = $cellValue;
+                            //         $phoneNumbers[] = $cellValue;
+                            //     }
+                            // }
                             // if its _uid column
-                            elseif ($dataStructure[$cellIndex] == '_uid' and !__isEmpty($contacts) and __isEmpty($contact)) {
+                           // else
+                            if ($dataStructure[$cellIndex] == '_uid' and !__isEmpty($contacts) and __isEmpty($contact)) {
                                 $contact = Arr::get($contacts, $cellValue);
                                 $contactId = Arr::get($contacts, $cellValue . '._id');
                             }
                             // if its country column
-                            elseif ($dataStructure[$cellIndex] == 'countries__id') {
-                                $getCountry = Arr::first($countries, function ($value, $key) use (&$cellValue) {
-                                    return strtolower($value['name']) == strtolower($cellValue);
-                                });
-                                $contactsToUpdate[$rowIndex][$dataStructure[$cellIndex]] = Arr::get($getCountry, '_id');
-                            } else {
+                            // elseif ($dataStructure[$cellIndex] == 'countries__id') {
+                            //     $getCountry = Arr::first($countries, function ($value, $key) use (&$cellValue) {
+                            //         return strtolower($value['name']) == strtolower($cellValue);
+                            //     });
+                            //     $contactsToUpdate[$rowIndex][$dataStructure[$cellIndex]] = Arr::get($getCountry, '_id');
+                            // } 
+                            else {
                                 $contactsToUpdate[$rowIndex][$dataStructure[$cellIndex]] = $cellValue;
                             }
                         }
@@ -776,7 +778,7 @@ class ContactEngine extends BaseEngine implements ContactEngineInterface
                 ], [
                     '_id',
                     '_uid',
-                    'wa_id'
+                 //   'wa_id'
                     ])?->keyBy('_uid')?->toArray() ?: [];
                 // next procedure to update related to models
                 // loop though each row
@@ -790,87 +792,89 @@ class ContactEngine extends BaseEngine implements ContactEngineInterface
                     foreach ($cells as $cellIndex => $cell) {
                         $cellValue = $cell->getValue();
                         // if its not header row and upto 4 cells its contact basic fields
-                        if(($rowIndex != 1) and ($cellIndex <= 5)) {
-                            if($dataStructure[$cellIndex] == 'wa_id') {
-                                // extract contact from array
-                                $contact = Arr::first($contacts, function ($value, $key) use (&$cellValue) {
-                                    return $value['wa_id'] == $cellValue;
-                                });
-                                // check if contact found
-                                if(!__isEmpty($contact)) {
-                                    $contactId = Arr::get($contact, '_id');
-                                } else {
-                                    // collect wa_id which is the phone numbers
-                                    $phoneNumbers[] = $cellValue;
-                                }
-                            }
-                            // if its _uid column
-                            elseif ($dataStructure[$cellIndex] == '_uid' and !__isEmpty($contacts) and __isEmpty($contact)) { // contact and id
-                                $contact = Arr::get($contacts, $cellValue);
-                                $contactId = Arr::get($contacts, $cellValue . '._id');
-                            }
-                        } elseif (($cellIndex == 6) and ($rowIndex != 1)) { // groups
-                            // get the group names and explode it from comma separated names
-                            $extractedGroups = trim($cellValue) ? explode(',', $cellValue) : [];
-                            $contactGroups = collect($contact['groups'] ?? [])->keyBy('_id');
-                            // loop through the groups
-                            foreach ($extractedGroups as $extractedGroup) {
-                                $extractedGroup = trim($extractedGroup);
-                                // get group id
-                                $contactGroupId = Arr::get($vendorContactGroups, $extractedGroup . '._id');
-                                if($contactId and $contactGroupId and !isset($contactGroups[$contactGroupId])) {
-                                    // set it for update
-                                    $contactGroupsToUpdate[] = [
-                                        'contact_groups__id' => $contactGroupId,
-                                        'contacts__id' => $contactId,
-                                    ];
-                                }
-                            }
-                        } elseif($cellIndex >= 7) { // custom field
-                            // custom field values
-                            if($rowIndex == 1) {
-                                $customFieldStructure[$cellIndex] = $cellValue;
-                            } else {
-                                // get custom item field data based on column head
-                                $customFieldItem = $vendorContactCustomFields[$customFieldStructure[ $cellIndex ?? null ]] ?? null;
-                                if($customFieldItem and $contactId) {
-                                    // extract the item from contact db custom field value
-                                    $customFieldDbItem = Arr::first($contact['custom_field_values'] ?? [], function ($value, $key) use ($customFieldItem) {
-                                        return $value['contact_custom_fields__id'] == Arr::get($customFieldItem, '_id');
-                                    });
-                                    $customFieldsToUpdate[] = [
-                                        // get or set uuid
-                                        '_uid' => Arr::get($customFieldDbItem, '_uid') ?: (string) Str::uuid(),
-                                        'contact_custom_fields__id' => Arr::get($customFieldItem, '_id'),
-                                        'contacts__id' => $contactId,
-                                        'field_value' => $cellValue,
-                                    ];
-                                }
-                            }
-                        }
+                        // if(($rowIndex != 1) and ($cellIndex <= 5)) {
+                        //     if($dataStructure[$cellIndex] == 'wa_id') {
+                        //         // extract contact from array
+                        //         $contact = Arr::first($contacts, function ($value, $key) use (&$cellValue) {
+                        //             return $value['wa_id'] == $cellValue;
+                        //         });
+                        //         // check if contact found
+                        //         if(!__isEmpty($contact)) {
+                        //             $contactId = Arr::get($contact, '_id');
+                        //         } else {
+                        //             // collect wa_id which is the phone numbers
+                        //             $phoneNumbers[] = $cellValue;
+                        //         }
+                        //     }
+                        //     // if its _uid column
+                        //     elseif ($dataStructure[$cellIndex] == '_uid' and !__isEmpty($contacts) and __isEmpty($contact)) { // contact and id
+                        //         $contact = Arr::get($contacts, $cellValue);
+                        //         $contactId = Arr::get($contacts, $cellValue . '._id');
+                        //     }
+                        // } 
+                        // elseif (($cellIndex == 6) and ($rowIndex != 1)) { // groups
+                        //     // get the group names and explode it from comma separated names
+                        //     $extractedGroups = trim($cellValue) ? explode(',', $cellValue) : [];
+                        //     $contactGroups = collect($contact['groups'] ?? [])->keyBy('_id');
+                        //     // loop through the groups
+                        //     foreach ($extractedGroups as $extractedGroup) {
+                        //         $extractedGroup = trim($extractedGroup);
+                        //         // get group id
+                        //         $contactGroupId = Arr::get($vendorContactGroups, $extractedGroup . '._id');
+                        //         if($contactId and $contactGroupId and !isset($contactGroups[$contactGroupId])) {
+                        //             // set it for update
+                        //             $contactGroupsToUpdate[] = [
+                        //                 'contact_groups__id' => $contactGroupId,
+                        //                 'contacts__id' => $contactId,
+                        //             ];
+                        //         }
+                        //     }
+                        // } 
+                        // elseif($cellIndex >= 7) { // custom field
+                        //     // custom field values
+                        //     if($rowIndex == 1) {
+                        //         $customFieldStructure[$cellIndex] = $cellValue;
+                        //     } else {
+                        //         // get custom item field data based on column head
+                        //         $customFieldItem = $vendorContactCustomFields[$customFieldStructure[ $cellIndex ?? null ]] ?? null;
+                        //         if($customFieldItem and $contactId) {
+                        //             // extract the item from contact db custom field value
+                        //             $customFieldDbItem = Arr::first($contact['custom_field_values'] ?? [], function ($value, $key) use ($customFieldItem) {
+                        //                 return $value['contact_custom_fields__id'] == Arr::get($customFieldItem, '_id');
+                        //             });
+                        //             $customFieldsToUpdate[] = [
+                        //                 // get or set uuid
+                        //                 '_uid' => Arr::get($customFieldDbItem, '_uid') ?: (string) Str::uuid(),
+                        //                 'contact_custom_fields__id' => Arr::get($customFieldItem, '_id'),
+                        //                 'contacts__id' => $contactId,
+                        //                 'field_value' => $cellValue,
+                        //             ];
+                        //         }
+                        //     }
+                        // }
                     }
                 }
             }
             // close the sheet
             $reader->close();
             // create or custom field values
-            if(!empty($customFieldsToUpdate)) {
-                foreach (array_chunk($customFieldsToUpdate, 500) as $customFieldsDataChunk) {
-                    $this->contactCustomFieldRepository->storeCustomValues($customFieldsDataChunk, '_uid');
-                }
-            }
+            // if(!empty($customFieldsToUpdate)) {
+            //     foreach (array_chunk($customFieldsToUpdate, 500) as $customFieldsDataChunk) {
+            //         $this->contactCustomFieldRepository->storeCustomValues($customFieldsDataChunk, '_uid');
+            //     }
+            // }
             // groups update
             if(!empty($contactGroupsToUpdate)) {
                 foreach (array_chunk($contactGroupsToUpdate, 500) as $contactGroupsFieldsDataChunk) {
                     $this->groupContactRepository->bunchInsertOrUpdate($contactGroupsFieldsDataChunk, '_uid');
                 }
             }
-            if(!empty($duplicateEntries)) {
-                return $this->engineSuccessResponse([], __tr('Total __totalContactsProcessed__ contact import processed, __duplicateEntries__ phone numbers found duplicate.', [
-                    '__totalContactsProcessed__' => $totalContactsProcessed,
-                    '__duplicateEntries__' => count($duplicateEntries),
-                ]));
-            }
+            // if(!empty($duplicateEntries)) {
+            //     return $this->engineSuccessResponse([], __tr('Total __totalContactsProcessed__ contact import processed, __duplicateEntries__ phone numbers found duplicate.', [
+            //         '__totalContactsProcessed__' => $totalContactsProcessed,
+            //         '__duplicateEntries__' => count($duplicateEntries),
+            //     ]));
+            // }
             return $this->engineSuccessResponse([], __tr('Total __totalContactsProcessed__ contact import processed', [
                 '__totalContactsProcessed__' => $totalContactsProcessed
             ]));

@@ -356,14 +356,14 @@ $groupDescription = $groupUid ? $currentGroup->description : '';
             ])">
                 <th style="width: 1px;padding:0;" data-name="none"></th>
                 <th data-name="none" data-template="#lwSelectMultipleContactsCheckbox">{{ __tr('Select') }}</th>
-                <th data-orderable="true" data-name="first_name">{{ __tr('First Name') }}</th>
+                <!-- <th data-orderable="true" data-name="first_name">{{ __tr('First Name') }}</th>
                 <th data-orderable="true" data-name="last_name">{{ __tr('Last Name') }}</th>
                 <th data-name="phone_number">{{ __tr('Mobile Number') }}</th>
-                <th data-name="language_code">{{ __tr('Language Code') }}</th>
+                <th data-name="language_code">{{ __tr('Language Code') }}</th> -->
                 <th data-orderable="true" data-name="created_at">{{ __tr('Created on') }}</th>
-                <th data-name="country_name">{{ __tr('Country') }}</th>
+                <!-- <th data-name="country_name">{{ __tr('Country') }}</th> -->
                 <th data-orderable="true" data-name="email">{{ __tr('Email') }}</th>
-                <th data-orderable="true" data-name="whatsapp_opt_out">{{ __tr('Marketing') }}</th>
+                <!-- <th data-orderable="true" data-name="whatsapp_opt_out">{{ __tr('Marketing') }}</th> -->
                 <th data-template="#contactActionColumnTemplate" name="null">{{ __tr('Action') }}</th>
             </x-lw.datatable>
         </div>
