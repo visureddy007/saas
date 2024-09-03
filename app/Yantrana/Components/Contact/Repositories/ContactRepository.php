@@ -129,6 +129,25 @@ class ContactRepository extends BaseRepository implements ContactRepositoryInter
         ])->fetchIt($findBy);
     }
 
+
+    public function getContactsDuplicateCount(){
+       $totalDuplicateCount = DB::table('contacts')
+        ->select(DB::raw('SUM(count) as totalDuplicates'))
+        ->from(DB::table('contacts')
+            ->select('email', DB::raw('COUNT(email) as count'))
+            ->groupBy('email')
+            ->having('count', '>', 1)
+        )
+        ->pluck('totalDuplicates')
+        ->first();
+        
+        return $totalDuplicateCount;
+    }
+    public function getContactsUniqueCount(){
+       $totalUniqueCount = $this->primaryModel::distinct('email')->count('email');
+       return $totalUniqueCount;
+    }
+
     /**
      * Get contact by phone number and vendor id
      *

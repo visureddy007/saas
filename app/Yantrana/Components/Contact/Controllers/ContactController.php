@@ -44,6 +44,8 @@ class ContactController extends BaseController
         validateVendorAccess('manage_contacts');
         $contactsRequiredEngineResponse = $this->contactEngine->prepareContactRequiredData($groupUid);
 
+       // print_r($contactsRequiredEngineResponse);exit;
+
         // load the view
         return $this->loadView('contact.list', $contactsRequiredEngineResponse->data());
     }

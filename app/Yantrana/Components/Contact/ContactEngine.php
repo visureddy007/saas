@@ -536,10 +536,15 @@ class ContactEngine extends BaseEngine implements ContactEngineInterface
             'vendors__id' => $vendorId,
         ]);
 
+        $totalDuplicateCount = $this->contactRepository->getContactsDuplicateCount();
+        $totalUniqueCount = $this->contactRepository->getContactsUniqueCount();
+
         return $this->engineSuccessResponse([
             'groupUid' => $groupUid,
             'vendorContactGroups' => $vendorContactGroups,
             'vendorContactCustomFields' => $vendorContactCustomFields,
+            'totalDuplicateCount' => $totalDuplicateCount,
+            'totalUniqueCount' => $totalUniqueCount,
         ]);
     }
 
@@ -759,10 +764,10 @@ class ContactEngine extends BaseEngine implements ContactEngineInterface
                     }
                 }
                 // check the feature limit
-                $vendorPlanDetails = vendorPlanDetails('contacts', (count($contacts) + $newContactsCount), $vendorId);
-                if (!$vendorPlanDetails['is_limit_available']) {
-                    return $this->engineResponse(22, null, $vendorPlanDetails['message']);
-                }
+                // $vendorPlanDetails = vendorPlanDetails('contacts', (count($contacts) + $newContactsCount), $vendorId);
+                // if (!$vendorPlanDetails['is_limit_available']) {
+                //     return $this->engineResponse(22, null, $vendorPlanDetails['message']);
+                // }
 
                 $totalContactsProcessed = count($contactsToUpdate);
                 // update contacts

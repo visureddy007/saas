@@ -34,7 +34,19 @@ $groupDescription = $groupUid ? $currentGroup->description : '';
                 <button type="button" class="lw-btn btn btn-dark" data-toggle="modal"
                     data-target="#lwImportContactDialog"> {{ __tr('Import Contacts') }}</button>
             </div>
+            
         </div>
+        <div class="col-xl-12 mb-3">
+        <div class="card" style="width:400px">
+            <div class="card-body">
+                <h4 class="card-title">No of unique :{{$totalUniqueCount}}</h4>
+                <h4 class="card-title">No of duplicate : {{$totalDuplicateCount}} </h4>
+                <a href="#" class="btn btn-primary">Verify</a>
+            </div>
+        </div>
+        </div>
+      
+
         <!--/ button -->
         {{-- import contacts --}}
         <x-lw.modal id="lwImportContactDialog" :header="__tr('Import Contacts')" :hasForm="true"
